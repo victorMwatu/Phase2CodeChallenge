@@ -1,6 +1,6 @@
 import App from "./App";
 import Home from "./pages/Home";
-import EditCreate from "./pages/EditCreate";
+import EditCreate from "./pages/Edit";
 import Goal from "./pages/Goal";
 import ErrorPage from "./pages/ErrorPage";
 

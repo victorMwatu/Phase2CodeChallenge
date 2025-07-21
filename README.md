@@ -12,6 +12,7 @@ Submission for Phase-2 Code Challenge which was to create a comprehensive financ
 
 ## Project Structure
 
+```
 smart-goal-planner/
 ├── public/
 │   └── index.html
@@ -36,6 +37,7 @@ smart-goal-planner/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
 
 ### Database Structure (db.json)
 
@@ -61,4 +63,4 @@ This project was created for educational purposes.
 
 ## 👨‍💻 Author
 
-Victor Mwatu
+Victor Nzioka Mwatu
