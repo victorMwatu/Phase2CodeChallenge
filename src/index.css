@@ -35,9 +35,15 @@ nav {
   z-index: 1000;        
   box-shadow: 0 2px 5px rgba(153, 148, 148, 0.1); 
 }
+
 .nav-links {
   display: flex;
   gap: 2rem;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0; /* optional: removes default indentation */
 }
 
 li span + span {

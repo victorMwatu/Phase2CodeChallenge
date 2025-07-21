@@ -5,6 +5,7 @@ function CreateGoal() {
   const { handleAdd } = useOutletContext();
   const navigate = useNavigate();
   const today = new Date().toISOString().split('T')[0];
+  const { URL } = useOutletContext();
 
   const [form, setForm] = useState({
     name: "",
@@ -29,7 +30,7 @@ function CreateGoal() {
 
   function handleSubmit(e) {
        e.preventDefault();
-    fetch("http://localhost:4000/goals", {
+    fetch(`${URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

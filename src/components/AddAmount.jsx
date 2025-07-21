@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function AddAmount({onHandle, goal}) {
-
+  const { URL } = useOutletContext();
   const [form, setForm] = useState({
     id: goal.id,
     savedAmount: "",
@@ -21,7 +21,7 @@ function AddAmount({onHandle, goal}) {
     const newAmount = goal.savedAmount + form.savedAmount;
   
 
-    fetch(`http://localhost:4000/goals/${goal.id}`, {
+    fetch(`${URL}/${goal.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

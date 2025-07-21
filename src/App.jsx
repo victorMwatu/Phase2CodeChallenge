@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   const [goals, setGoals] = useState([]);
-
+  const URL = "http://localhost:4000/goals" 
   useEffect(() => {
-    fetch("http://localhost:4000/goals")
+    fetch(URL)
       .then((response) => response.json())
       .then((data) => setGoals(data))
       .catch((error) => console.error("Failed to fetch goals:", error));
@@ -35,7 +35,7 @@ function App() {
         <NavBar />
       </header>
       <main className="">
-        <Outlet context={ { goals, handleAdd, handeleDelete, handleEdit } } />
+        <Outlet context={ { goals, handleAdd, handeleDelete, handleEdit, URL } } />
       </main>
     </div>
   );

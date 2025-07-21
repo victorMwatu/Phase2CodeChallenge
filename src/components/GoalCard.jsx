@@ -10,7 +10,8 @@ function GoalCard({ goal }) {
   const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
   const [showAddForm, setShowAddForm] = useState(false);
   const { handleDelete } = useOutletContext();
-  const percentageSaved = (goal.savedAmount / goal.targetAmount) * 100;
+  const { URL } = useOutletContext();
+  const percentageSaved = Math.round((goal.savedAmount / goal.targetAmount) * 100);
 
   const status = (goal) => {
     const now = new Date();
@@ -27,7 +28,7 @@ function GoalCard({ goal }) {
     setShowAddForm(showAddForm => showAddForm = val)
   }
  function handleDeleteGoal() {
-    fetch(`http://localhost:4000/goals/${goal.id}`, {
+    fetch(`${URL}/${goal.id}`, {
       method: "DELETE",
     })
       .then((r) => r.json())
@@ -71,7 +72,7 @@ function GoalCard({ goal }) {
         <button onClick={handleDeleteGoal}>Delete</button>
       </div>
       <div className="progress-bar">
-        <div className="progress-fill" style={{ width: `${percentageSaved}%` }} >Progress {percentageSaved}%</div>
+        <div className="progress-fill" style={{ width: `${Number(percentageSaved)}%` }} >Progress {Number(percentageSaved)}%</div>
       </div>
       
     </li>

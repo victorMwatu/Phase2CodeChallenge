@@ -7,6 +7,7 @@ function Edit() {
   const navigate = useNavigate();
   const { id } = useParams();
   const selectedGoal = goals.find((g) => g.id.toString() === id);
+  const { URL } = useOutletContext();
 
   const [form, setForm] = useState({
     id: selectedGoal.id,
@@ -30,7 +31,7 @@ function Edit() {
 
   function handleSubmit(e) {
        e.preventDefault();
-    fetch(`http://localhost:4000/goals/${selectedGoal.id}`, {
+    fetch(`${URL}/${selectedGoal.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
