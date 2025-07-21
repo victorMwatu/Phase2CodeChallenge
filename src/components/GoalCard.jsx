@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AddAmount from "./AddAmount";
 
 function GoalCard({ goal }) {
   const deadline = new Date(goal.deadline);
@@ -6,6 +8,7 @@ function GoalCard({ goal }) {
   const navigate = useNavigate();
   const diffInMs = deadline - new Date();
   const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
+  const [showAddForm, setShowAddForm] = useState(false);
 
   const status = (goal) => {
     const now = new Date();
@@ -18,8 +21,16 @@ function GoalCard({ goal }) {
     return "";
   };
 
+  function handleAddAmountForm(val) {
+    setShowAddForm(showAddForm => showAddForm = val)
+  }
+
+
   return (
     <li>
+      <div>
+          {showAddForm ? <AddAmount onHandle={handleAddAmountForm} goal={goal}/> : null }
+      </div>
       <h3>{goal.name}</h3>
 
       <div>
@@ -48,7 +59,10 @@ function GoalCard({ goal }) {
 
       <div>
         <button onClick={() => navigate(`/editGoal/${goal.id}`)}>Edit Goal</button>
+        <button onClick={handleAddAmountForm}>Add Amount</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
+      
     </li>
   );
 }

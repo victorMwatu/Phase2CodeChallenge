@@ -4,6 +4,7 @@ import CreateGoal from "./pages/CreateGoal";
 import Goal from "./pages/Goal";
 import ErrorPage from "./pages/ErrorPage";
 import Edit from "./pages/Edit";
+import AddAmount from "./components/AddAmount";
 
 
 
@@ -30,6 +31,10 @@ const routes = [
           {
               path: "/goal/:id",
               element: <Goal />
+          },
+           {
+              path: "/addAmount/:id",
+              element: <AddAmount />
           }
       ]
   }

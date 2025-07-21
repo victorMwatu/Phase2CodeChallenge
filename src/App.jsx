@@ -10,7 +10,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => setGoals(data))
       .catch((error) => console.error("Failed to fetch goals:", error));
-  }, []);
+  }, [goals]);
 
   function handleAdd(newGoal) {
     setGoals([...goals, newGoal])

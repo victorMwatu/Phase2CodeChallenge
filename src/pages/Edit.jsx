@@ -18,7 +18,14 @@ function Edit() {
   console.log(id);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    const newValue =
+    name === "targetAmount"
+        ? Number(value)
+        : value;
+
+  setForm({ ...form, [name]: newValue });
   };
 
   function handleSubmit(e) {
