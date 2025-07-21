@@ -1,12 +1,64 @@
-# React + Vite
+# Phase 2 Code Challenge Smart Goal Planner 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Submission for Phase-2 Code Challenge which was to create a comprehensive financial goal management dashboard that helps users track multiple savings goals, make deposits, and monitor their progress toward achieving financial objectives.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: [https://victormwatu.github.io/Phase2CodeChallenge](https://victormwatu.github.io/Phase2CodeChallenge)
+- **Backend**: Hosted on Render
+
+## Project Structure
+
+smart-goal-planner/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── GoalCard.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── EditPage.jsx
+│   │   ├── ErrorPage.jsx
+│   │   └── Goal.jsx
+│   ├── pages/
+│   │   └── Home.jsx
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── routes.jsx
+├── db.json
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+└── README.md
+
+### Database Structure (db.json)
+
+```json
+{
+  "goals": [
+    {
+      "id": 1,
+      "name": "Emergency Fund",
+      "targetAmount": 10000,
+      "savedAmount": 2500,
+      "category": "Emergency",
+      "deadline": "2024-12-31",
+      "createdAt": "2024-01-15"
+    }
+  ]
+}
+```
+
+## License
+
+This project was created for educational purposes.
+
+## 👨‍💻 Author
+
+Victor Mwatu
