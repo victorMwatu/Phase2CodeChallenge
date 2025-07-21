@@ -11,33 +11,31 @@ import AddAmount from "./components/AddAmount";
 
 const routes = [
   {
-      path: "/",
-      element: <App />,
-      errorElement: <ErrorPage />,
-      children: [
-           {
-              path: "/",
-              element: <Home />,
-
-          }, 
-          {
-              path: "/createGoal",
-              element: <CreateGoal />
-          },
-          {
-              path: "/editGoal/:id",
-              element: <Edit />
-          },
-          {
-              path: "/goal/:id",
-              element: <Goal />
-          },
-           {
-              path: "/addAmount/:id",
-              element: <AddAmount />
-          }
-      ]
-  }
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true, 
+        element: <Home />,
+      },
+      {
+        path: "createGoal", 
+        element: <CreateGoal />,
+      },
+      {
+        path: "editGoal/:id", 
+        element: <Edit />,
+      },
+      {
+        path: "goal/:id", 
+        element: <Goal />,
+      },
+      {
+        path: "addAmount/:id", 
+        element: <AddAmount />,
+      },
+    ],
+  },
 ];
-
 export default routes;
