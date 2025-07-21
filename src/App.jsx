@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   const [goals, setGoals] = useState([]);
-  const URL = "https://phase2codechallenge.onrender.com" 
+  const URL = "https://phase2codechallenge.onrender.com/goals" 
   useEffect(() => {
     fetch(URL)
       .then((response) => response.json())
