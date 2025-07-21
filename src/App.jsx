@@ -12,13 +12,30 @@ function App() {
       .catch((error) => console.error("Failed to fetch goals:", error));
   }, []);
 
+  function handleAdd(newGoal) {
+    setGoals([...goals, newGoal])
+  }
+  function handeleDelete(deletedGoal) {
+    const updatedGoals = goals.filter(goal => goal.id != deletedGoal.id);
+    setGoals(updatedGoals);
+  }
+
+  function handleEdit(editedGoal) {
+    const updatedGoals = goals.map(goal => {
+      if(goal.id === editedGoal.id) {
+        return editedGoal;
+      } else {
+        return goal;
+      }
+    });
+  }
   return (
     <div className="min-h-screen font-sans">
       <header className="">
         <NavBar />
       </header>
       <main className="">
-        <Outlet context={{ goals }} />
+        <Outlet context={ { goals, handleAdd, handeleDelete, handleEdit } } />
       </main>
     </div>
   );

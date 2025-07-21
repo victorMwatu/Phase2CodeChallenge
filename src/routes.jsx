@@ -1,8 +1,9 @@
 import App from "./App";
 import Home from "./pages/Home";
-import EditCreate from "./pages/Edit";
+import CreateGoal from "./pages/CreateGoal";
 import Goal from "./pages/Goal";
 import ErrorPage from "./pages/ErrorPage";
+import Edit from "./pages/Edit";
 
 
 
@@ -19,8 +20,12 @@ const routes = [
 
           }, 
           {
-              path: "/editCreate",
-              element: <EditCreate />
+              path: "/createGoal",
+              element: <CreateGoal />
+          },
+          {
+              path: "/editGoal",
+              element: <Edit />
           },
           {
               path: "/goal/:id",

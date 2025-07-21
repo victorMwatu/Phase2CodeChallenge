@@ -1,17 +1,17 @@
 import { useOutletContext, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-function Edit() {
-  const { goals } = useOutletContext();
-  const { handleEdit } = useOutletContext();
+function CreateGoal() {
+  const { handleAdd } = useOutletContext();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    id: goals.id,
-    name: goals.name,
-    category: goals.category,
-    targetAmount: goals.targetAmount,
-    deadline: goals.deadline,
+    name: "",
+    description: "",
+    category: "",
+    targetAmount: "",
+    savedAmount: "",
+    deadline: "",
   });
 
   const handleChange = (e) => {
@@ -20,8 +20,8 @@ function Edit() {
 
   function handleSubmit(e) {
        e.preventDefault();
-    fetch(`http://localhost:4000/goals/${goals.id}`, {
-      method: "PATCH",
+    fetch("http://localhost:4000/goals", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -29,10 +29,9 @@ function Edit() {
     })
     .then(r => r.json())
     .then(data => {
-        handleEdit(data);
+        handleAdd(data);
         navigate("/home");
-  })
-    ;
+  });
    }
 
   return (
@@ -49,6 +48,13 @@ function Edit() {
                 onChange={handleChange}
         />
 
+        <label>Goal Description:</label>
+        <input type="text"
+                name="description"
+                value={form.description}
+                onChange={handleChange}
+        />
+
         <label>Category:</label>
         <input type="text"
                 name="category"
@@ -60,6 +66,13 @@ function Edit() {
         <input type="text"
                 name="targetAmount"
                 value={form.targetAmount}
+                onChange={handleChange}
+        />
+
+        <label>Saved Amount:</label>
+        <input type="text"
+                name="savedAmount"
+                value={form.savedAmount}
                 onChange={handleChange}
         />
 
@@ -78,4 +91,4 @@ function Edit() {
   );
 }
 
-export default Edit;
+export default CreateGoal;

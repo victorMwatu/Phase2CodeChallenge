@@ -9,7 +9,7 @@ function NavBar() {
           Home
         </NavLink>
         <NavLink 
-        to="/editCreate">
+        to="/createGoal">
           New Goal
         </NavLink> 
       </div>

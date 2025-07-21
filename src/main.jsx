@@ -6,7 +6,7 @@ import "./index.css";
 const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")).render(
-  <div className="">
+  <div>
     <RouterProvider router={router} />
   </div>
 );

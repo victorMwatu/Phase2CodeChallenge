@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 
 function GoalCard({ goal }) {
   const deadline = new Date(goal.deadline);
   const createdAt = new Date(goal.createdAt);
+  const navigate = useNavigate();
   const diffInMs = deadline - new Date();
   const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
 
@@ -45,7 +47,7 @@ function GoalCard({ goal }) {
       </div>
 
       <div>
-        <button onClick={() => handleEdit(goal.id)}>Edit Goal</button>
+        <button onClick={() => navigate("/editGoal")}>Edit Goal</button>
       </div>
     </li>
   );
