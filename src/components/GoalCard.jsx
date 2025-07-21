@@ -14,7 +14,7 @@ function GoalCard({ goal }) {
 
     if (goal.savedAmount >= goal.targetAmount) return "Completed";
     if (deadline < now) return "Overdue";
-    if (daysLeft <= 30) return "Warning: Less Than 30 Days Left.";
+    if (daysLeft < 31) return "Warning: Less Than 30 Days Left.";
     return "";
   };
 
@@ -47,7 +47,7 @@ function GoalCard({ goal }) {
       </div>
 
       <div>
-        <button onClick={() => navigate("/editGoal")}>Edit Goal</button>
+        <button onClick={() => navigate(`/editGoal/${goal.id}`)}>Edit Goal</button>
       </div>
     </li>
   );

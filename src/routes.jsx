@@ -24,7 +24,7 @@ const routes = [
               element: <CreateGoal />
           },
           {
-              path: "/editGoal",
+              path: "/editGoal/:id",
               element: <Edit />
           },
           {

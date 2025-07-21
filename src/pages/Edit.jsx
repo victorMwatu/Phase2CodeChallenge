@@ -1,18 +1,21 @@
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useOutletContext, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 function Edit() {
   const { goals } = useOutletContext();
   const { handleEdit } = useOutletContext();
   const navigate = useNavigate();
+  const { id } = useParams();
+  const selectedGoal = goals.find((g) => g.id.toString() === id);
 
   const [form, setForm] = useState({
-    id: goals.id,
-    name: goals.name,
-    category: goals.category,
-    targetAmount: goals.targetAmount,
-    deadline: goals.deadline,
+    id: selectedGoal.id,
+    name: selectedGoal.name,
+    category: selectedGoal.category,
+    targetAmount: selectedGoal.targetAmount,
+    deadline: selectedGoal.deadline,
   });
+  console.log(id);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,7 +23,7 @@ function Edit() {
 
   function handleSubmit(e) {
        e.preventDefault();
-    fetch(`http://localhost:4000/goals/${goals.id}`, {
+    fetch(`http://localhost:4000/goals/${selectedGoal.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +33,7 @@ function Edit() {
     .then(r => r.json())
     .then(data => {
         handleEdit(data);
-        navigate("/home");
+        navigate("/");
   })
     ;
    }
@@ -57,20 +60,20 @@ function Edit() {
         />
 
         <label>Target Amount:</label>
-        <input type="text"
+        <input type="number"
                 name="targetAmount"
                 value={form.targetAmount}
                 onChange={handleChange}
         />
 
         <label>Deadline:</label>
-        <input type="text"
+        <input type="date"
                 name="deadline"
                 value={form.deadline}
                 onChange={handleChange}
         />
 
-        <button type="submit" onSubmit={() => handleSubmit()}>
+        <button type="submit">
           Create Goal
         </button>
       </form>

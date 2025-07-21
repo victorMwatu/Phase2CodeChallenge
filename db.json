@@ -91,13 +91,13 @@
       "createdAt": "2024-05-15"
     },
     {
-      "id": "c33f",
+      "id": "ed1d",
       "name": "Get Quad",
-      "description": "Buy a quad for hobbies",
       "category": "Hobbies",
-      "targetAmount": "10000",
-      "savedAmount": "1000",
-      "deadline": "\"26-2-2026\""
+      "targetAmount": 50000,
+      "savedAmount": 1000,
+      "deadline": "2025-07-31",
+      "createdAt": "2025-07-21"
     }
   ]
 }

@@ -4,18 +4,27 @@ import { useState } from "react";
 function CreateGoal() {
   const { handleAdd } = useOutletContext();
   const navigate = useNavigate();
+  const today = new Date().toISOString().split('T')[0];
 
   const [form, setForm] = useState({
     name: "",
-    description: "",
     category: "",
     targetAmount: "",
     savedAmount: "",
     deadline: "",
+    createdAt: today
   });
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+
+    const newValue =
+    name === "targetAmount" || name === "savedAmount"
+        ? Number(value)
+        : value;
+
+  setForm({ ...form, [name]: newValue });
   };
 
   function handleSubmit(e) {
@@ -30,7 +39,7 @@ function CreateGoal() {
     .then(r => r.json())
     .then(data => {
         handleAdd(data);
-        navigate("/home");
+        navigate("/");
   });
    }
 
@@ -48,13 +57,6 @@ function CreateGoal() {
                 onChange={handleChange}
         />
 
-        <label>Goal Description:</label>
-        <input type="text"
-                name="description"
-                value={form.description}
-                onChange={handleChange}
-        />
-
         <label>Category:</label>
         <input type="text"
                 name="category"
@@ -63,27 +65,27 @@ function CreateGoal() {
         />
 
         <label>Target Amount:</label>
-        <input type="text"
+        <input type="number"
                 name="targetAmount"
                 value={form.targetAmount}
                 onChange={handleChange}
         />
 
         <label>Saved Amount:</label>
-        <input type="text"
+        <input type="number"
                 name="savedAmount"
                 value={form.savedAmount}
                 onChange={handleChange}
         />
 
         <label>Deadline:</label>
-        <input type="text"
+        <input type="date"
                 name="deadline"
                 value={form.deadline}
                 onChange={handleChange}
         />
 
-        <button type="submit" onSubmit={() => handleSubmit()}>
+        <button type="submit">
           Create Goal
         </button>
       </form>
