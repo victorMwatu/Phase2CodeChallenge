@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import AddAmount from "./AddAmount";
 
 function GoalCard({ goal }) {
@@ -9,6 +9,7 @@ function GoalCard({ goal }) {
   const diffInMs = deadline - new Date();
   const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
   const [showAddForm, setShowAddForm] = useState(false);
+  const { handleDelete } = useOutletContext();
 
   const status = (goal) => {
     const now = new Date();
@@ -21,10 +22,16 @@ function GoalCard({ goal }) {
     return "";
   };
 
-  function handleAddAmountForm(val) {
+ function handleAddAmountForm(val) {
     setShowAddForm(showAddForm => showAddForm = val)
   }
-
+ function handleDeleteGoal() {
+    fetch(`http://localhost:4000/goals/${goal.id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => handleDelete(goal));
+  }
 
   return (
     <li>
@@ -60,7 +67,7 @@ function GoalCard({ goal }) {
       <div>
         <button onClick={() => navigate(`/editGoal/${goal.id}`)}>Edit Goal</button>
         <button onClick={handleAddAmountForm}>Add Amount</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDeleteGoal}>Delete</button>
       </div>
       
     </li>
