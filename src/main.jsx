@@ -3,7 +3,9 @@ import routes from "./routes.jsx";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, {
+  basename: "/Phase2CodeChallenge",
+});
 
 createRoot(document.getElementById("root")).render(
   <div>
