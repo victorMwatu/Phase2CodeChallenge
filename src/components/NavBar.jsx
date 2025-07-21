@@ -4,7 +4,7 @@ function NavBar() {
   return (
     <nav>
       <h3>Goal Tracker</h3>
-      <div>
+      <div className="nav-links">
         <NavLink to="/">
           Home
         </NavLink>

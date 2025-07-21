@@ -10,6 +10,7 @@ function GoalCard({ goal }) {
   const diffInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
   const [showAddForm, setShowAddForm] = useState(false);
   const { handleDelete } = useOutletContext();
+  const percentageSaved = (goal.savedAmount / goal.targetAmount) * 100;
 
   const status = (goal) => {
     const now = new Date();
@@ -68,6 +69,9 @@ function GoalCard({ goal }) {
         <button onClick={() => navigate(`/editGoal/${goal.id}`)}>Edit Goal</button>
         <button onClick={handleAddAmountForm}>Add Amount</button>
         <button onClick={handleDeleteGoal}>Delete</button>
+      </div>
+      <div className="progress-bar">
+        <div className="progress-fill" style={{ width: `${percentageSaved}%` }} >Progress {percentageSaved}%</div>
       </div>
       
     </li>
