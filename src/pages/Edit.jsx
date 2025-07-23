@@ -49,7 +49,7 @@ function Edit() {
   return (
     <div>
       <h2>
-        Create New Goal:
+        Edit New Goal:
       </h2>
 
       <form onSubmit={handleSubmit} class="form">
@@ -90,7 +90,10 @@ function Edit() {
         </div>
 
         <button type="submit">
-          Create Goal
+          Edit Goal
+        </button>
+        <button onClick={() => navigate("/")}>
+          Cancel
         </button>
       </form>
     </div>
