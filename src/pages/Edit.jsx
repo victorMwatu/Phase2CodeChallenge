@@ -52,34 +52,42 @@ function Edit() {
         Create New Goal:
       </h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} class="form">
+        <div class="form-group">
         <label>Goal Name:</label>
         <input type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
         />
+        </div>
 
+        <div class="form-group">
         <label>Category:</label>
         <input type="text"
                 name="category"
                 value={form.category}
                 onChange={handleChange}
         />
+        </div>
 
+        <div class="form-group">
         <label>Target Amount:</label>
         <input type="number"
                 name="targetAmount"
                 value={form.targetAmount}
                 onChange={handleChange}
         />
+        </div>
 
+        <div class="form-group">
         <label>Deadline:</label>
         <input type="date"
                 name="deadline"
                 value={form.deadline}
                 onChange={handleChange}
         />
+        </div>
 
         <button type="submit">
           Create Goal

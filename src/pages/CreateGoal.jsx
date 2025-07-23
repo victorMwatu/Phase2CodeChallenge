@@ -51,33 +51,41 @@ function CreateGoal() {
       </h2>
 
       <form onSubmit={handleSubmit}>
+        <div class="form-group">
         <label>Goal Name:</label>
         <input type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
         />
+        </div>
 
+        <div class="form-group">
         <label>Category:</label>
         <input type="text"
                 name="category"
                 value={form.category}
                 onChange={handleChange}
         />
+        </div>
 
+        <div class="form-group">
         <label>Target Amount:</label>
         <input type="number"
                 name="targetAmount"
                 value={form.targetAmount}
                 onChange={handleChange}
         />
+        </div>
 
+        <div class="form-group">
         <label>Saved Amount:</label>
         <input type="number"
                 name="savedAmount"
                 value={form.savedAmount}
                 onChange={handleChange}
         />
+        </div>
 
         <label>Deadline:</label>
         <input type="date"
