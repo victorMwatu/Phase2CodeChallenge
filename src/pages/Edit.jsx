@@ -89,12 +89,14 @@ function Edit() {
         />
         </div>
 
+        <div class="form-group">
         <button type="submit">
           Edit Goal
         </button>
         <button onClick={() => navigate("/")}>
           Cancel
         </button>
+        </div>
       </form>
     </div>
   );
